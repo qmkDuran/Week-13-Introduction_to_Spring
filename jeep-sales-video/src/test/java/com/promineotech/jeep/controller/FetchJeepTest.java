@@ -21,6 +21,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlConfig;
 
+import com.promineotech.jeep.Constants;
 import com.promineotech.jeep.controller.support.FetchJeepTestSupport;
 import com.promineotech.jeep.entity.Jeep;
 import com.promineotech.jeep.entity.JeepModel;
@@ -103,7 +104,13 @@ class FetchJeepTest extends FetchJeepTestSupport {
 	}
 
 	static Stream<Arguments> parametersForInvalidInput() {
-		return Stream.of(arguments("WRANGLER", "@#$%#$%#$%", "Trim contains non-alpha-muneric chars"));
+		// @formatter:off
+		return Stream.of(
+				arguments("WRANGLER", "@#$%#$%#$%", "Trim contains non-alpha-muneric chars"),
+				arguments("WRANGLER", "C".repeat(Constants.TRIM_MAX_LENGTH + 1), "Trim lenght too long"),
+				arguments("WRANGLER", "Sport", "Model is not enum value")
+		// @formatter:on
+		);
 	}
 
 }
