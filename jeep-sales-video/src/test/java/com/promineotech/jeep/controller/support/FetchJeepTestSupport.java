@@ -49,7 +49,7 @@ public class FetchJeepTestSupport extends BaseTest {
 			.containsKey("message")
 			.containsEntry("status code", status.value())
 			.containsEntry("uri", "/jeeps")
-			.containsKey("utimestamp")
+			.containsKey("timestamp")
 			.containsEntry("reason", status.getReasonPhrase());
 		// @formatter:on
 	}

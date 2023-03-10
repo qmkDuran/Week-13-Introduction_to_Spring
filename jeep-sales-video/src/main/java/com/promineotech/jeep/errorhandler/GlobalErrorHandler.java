@@ -90,14 +90,13 @@ public class GlobalErrorHandler {
 
 		error.put("message", e.toString());
 		error.put("status code", status.value());
-		error.put("uri", webRequest.getContextPath());
 		error.put("timestamp", timestamp);
 		error.put("reason", status.getReasonPhrase());
 
 		if (logStatus == LogStatus.MESSAGE_ONLY) {
 			log.error("Exception: {}", e.toString());
 		} else {
-			log.error("Exception: {}", e);
+			log.error("Exception:", e);
 		}
 
 		return error;
