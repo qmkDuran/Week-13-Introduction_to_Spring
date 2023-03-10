@@ -18,9 +18,9 @@ public class BasicJeepSalesController implements JeepSalesController {
 	private JeepSalesService jeepSalesService;
 
 	@Override
-	public List<Jeep> fetchJeep(JeepModel model, String trim) {
+	public List<Jeep> fetchJeeps(JeepModel model, String trim) {
 		log.debug("model={}, trim={}", model, trim);
-		return jeepSalesService.fetchJeep(model, trim);
+		return jeepSalesService.fetchJeeps(model, trim);
 	}
 
 }

@@ -70,7 +70,7 @@ public interface JeepSalesController {
 	)
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
-	List<Jeep> fetchJeep(
+	List<Jeep> fetchJeeps(
 			@RequestParam(required = false) 
 				JeepModel model,
 			@Length(max = Constants.TRIM_MAX_LENGTH)

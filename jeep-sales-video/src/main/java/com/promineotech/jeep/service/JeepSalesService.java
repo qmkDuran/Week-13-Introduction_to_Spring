@@ -13,6 +13,6 @@ public interface JeepSalesService {
 	 * @return
 	 */
 
-	List<Jeep> fetchJeep(JeepModel model, String trim);
+	List<Jeep> fetchJeeps(JeepModel model, String trim);
 
 }

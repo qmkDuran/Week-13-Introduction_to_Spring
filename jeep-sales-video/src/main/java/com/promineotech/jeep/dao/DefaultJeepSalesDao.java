@@ -33,7 +33,7 @@ public class DefaultJeepSalesDao implements JeepSalesDao {
 	private NamedParameterJdbcTemplate jdbcTemplate;
 
 	@Override
-	public List<Jeep> fetchJeeps(JeepModel model, String trim) {
+	public List<Jeep> fetchJeepss(JeepModel model, String trim) {
 		log.info("DAO: model={}, trim={}", model, trim);
 
 		// @formatter:off
@@ -49,7 +49,7 @@ public class DefaultJeepSalesDao implements JeepSalesDao {
 		params.put("trim_level", trim);
 
 		/*
-		 * RowMapper works with just diamond operator because fetchJeeps return
+		 * RowMapper works with just diamond operator because fetchJeepss return
 		 * statement implies List of Jeeps.
 		 * 
 		 * RowMapper calls mapRow to loop through the result set and return a Jeep
@@ -82,6 +82,6 @@ public class DefaultJeepSalesDao implements JeepSalesDao {
 				} // end RowMapper
 		); // end jdbcTemplate.query
 
-	} // end fetchJeeps
+	} // end fetchJeepss
 
 } // end CLASS
