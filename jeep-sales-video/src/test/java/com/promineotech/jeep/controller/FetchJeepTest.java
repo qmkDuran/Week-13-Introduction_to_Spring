@@ -114,6 +114,7 @@ class FetchJeepTest {
 
 			// And: an error message is returned
 			Map<String, Object> error = response.getBody();
+
 			assertErrorMessageValid(error, HttpStatus.BAD_REQUEST);
 		}
 	}

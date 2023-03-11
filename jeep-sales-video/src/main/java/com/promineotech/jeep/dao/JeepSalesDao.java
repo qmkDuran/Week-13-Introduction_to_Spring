@@ -14,6 +14,6 @@ public interface JeepSalesDao {
 	 * @return
 	 */
 
-	List<Jeep> fetchJeepss(JeepModel model, String trim);
+	List<Jeep> fetchJeeps(JeepModel model, String trim);
 
 }

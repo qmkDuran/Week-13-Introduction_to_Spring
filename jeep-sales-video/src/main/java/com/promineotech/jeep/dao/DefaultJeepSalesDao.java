@@ -10,6 +10,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.promineotech.jeep.entity.Jeep;
@@ -26,6 +27,7 @@ import lombok.extern.slf4j.Slf4j;
  * Added .toString on model_id because the JeepModel ENUM could not be converted into JSON. 
  */
 @Service
+@Component
 @Slf4j
 public class DefaultJeepSalesDao implements JeepSalesDao {
 
@@ -33,7 +35,7 @@ public class DefaultJeepSalesDao implements JeepSalesDao {
 	private NamedParameterJdbcTemplate jdbcTemplate;
 
 	@Override
-	public List<Jeep> fetchJeepss(JeepModel model, String trim) {
+	public List<Jeep> fetchJeeps(JeepModel model, String trim) {
 		log.info("DAO: model={}, trim={}", model, trim);
 
 		// @formatter:off
@@ -49,7 +51,7 @@ public class DefaultJeepSalesDao implements JeepSalesDao {
 		params.put("trim_level", trim);
 
 		/*
-		 * RowMapper works with just diamond operator because fetchJeepss return
+		 * RowMapper works with just diamond operator because fetchJeeps return
 		 * statement implies List of Jeeps.
 		 * 
 		 * RowMapper calls mapRow to loop through the result set and return a Jeep
@@ -82,6 +84,6 @@ public class DefaultJeepSalesDao implements JeepSalesDao {
 				} // end RowMapper
 		); // end jdbcTemplate.query
 
-	} // end fetchJeepss
+	} // end fetchJeeps
 
 } // end CLASS

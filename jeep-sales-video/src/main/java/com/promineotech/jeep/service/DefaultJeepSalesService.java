@@ -24,9 +24,9 @@ public class DefaultJeepSalesService implements JeepSalesService {
 	@Transactional(readOnly = true)
 	@Override
 	public List<Jeep> fetchJeeps(JeepModel model, String trim) {
-		log.info("The fetchJeepss metod was called with model={} and trim={}", model, trim);
+		log.info("The fetchJeeps metod was called with model={} and trim={}", model, trim);
 
-		List<Jeep> jeeps = jeepSalesDao.fetchJeepss(model, trim);
+		List<Jeep> jeeps = jeepSalesDao.fetchJeeps(model, trim);
 
 		if (jeeps.isEmpty()) {
 			String msg = String.format("No Jeeps found with model=%s and trim=%s", model, trim);
