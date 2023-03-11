@@ -124,7 +124,7 @@ class FetchJeepTest {
 		return Stream.of(
 				arguments("WRANGLER", "@#$%#$%#$%", "Trim contains non-alpha-muneric chars"),
 				arguments("WRANGLER", "C".repeat(Constants.TRIM_MAX_LENGTH + 1), "Trim lenght too long"),
-				arguments("WRANGLER", "Sport", "Model is not enum value")
+				arguments("SPARROW", "Sport", "Model is not enum value")
 		// @formatter:on
 		);
 	}
