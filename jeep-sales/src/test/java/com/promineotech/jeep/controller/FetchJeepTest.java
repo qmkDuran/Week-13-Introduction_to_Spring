@@ -51,7 +51,7 @@ class FetchJeepTest {
 			// Given: a valid model, trim, and URI
 			JeepModel model = JeepModel.WRANGLER;
 			String trim = "Sport";
-			String uri = String.format("%s?model=%s&trim=%s", getBaseUri(), model, trim);
+			String uri = String.format("%s?model=%s&trim=%s", getBaseUriForJeeps(), model, trim);
 
 			// When : a connection is made to the URI
 			ResponseEntity<List<Jeep>> response = getRestTemplate().exchange(uri, HttpMethod.GET, null,
@@ -78,7 +78,7 @@ class FetchJeepTest {
 			// Given: a valid model, trim, and URI
 			JeepModel model = JeepModel.WRANGLER;
 			String trim = "Unknown Value";
-			String uri = String.format("%s?model=%s&trim=%s", getBaseUri(), model, trim);
+			String uri = String.format("%s?model=%s&trim=%s", getBaseUriForJeeps(), model, trim);
 
 			// When : a connection is made to the URI
 			ResponseEntity<Map<String, Object>> response = getRestTemplate().exchange(uri, HttpMethod.GET, null,
@@ -102,7 +102,7 @@ class FetchJeepTest {
 		@MethodSource("com.promineotech.jeep.controller.FetchJeepTest#parametersForInvalidInput")
 		void testThatAnErrorMessageIsReturnedWhenAnInvalidValueIsSupplied(String model, String trim, String Reason) {
 			// Given: a valid model, trim, and URI
-			String uri = String.format("%s?model=%s&trim=%s", getBaseUri(), model, trim);
+			String uri = String.format("%s?model=%s&trim=%s", getBaseUriForJeeps(), model, trim);
 
 			// When : a connection is made to the URI
 			ResponseEntity<Map<String, Object>> response = getRestTemplate().exchange(uri, HttpMethod.GET, null,
@@ -150,7 +150,7 @@ class FetchJeepTest {
 			// Given: a valid model, trim, and URI
 			JeepModel model = JeepModel.WRANGLER;
 			String trim = "Ivalid";
-			String uri = String.format("%s?model=%s&trim=%s", getBaseUri(), model, trim);
+			String uri = String.format("%s?model=%s&trim=%s", getBaseUriForJeeps(), model, trim);
 
 			doThrow(new RuntimeException("Ouch!")).when(jeepSalesService).fetchJeeps(model, trim);
 
